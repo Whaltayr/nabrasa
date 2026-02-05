@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOGO & BRASA | Steakhouse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+    <div class="logo">F&B</div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Home</a></li>
+         
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="reservar.html" class="btn-reservar">Reservar</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="embers-container" id="embers"></div>
+
+        <div class="content">
+            <h1 class="hero-title">FOGO <span class="highlight">&</span> BRASA</h1>
+            <p class="hero-subtitle">O Ritual do Fogo</p>
+            <button class="cta-button">Reservar Mesa</button>
+        </div>
+    </section>
+
+    <section class="experience">
+    
+    <div class="showcase-item">
+        <div class="showcase-text">
+            <h2>Picanha <span class="highlight">Noble</span></h2>
+            <p>O corte mais desejado do Brasil, servido com a precisão de um mestre churrasqueiro. Suculência inigualável.</p>
+        </div>
+        <div class="showcase-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?q=80&w=1000&auto=format&fit=crop" alt="Picanha Grelhada" class="parallax-img">
+        </div>
+    </div>
+
+    <div class="showcase-item reverse">
+        <div class="showcase-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop" alt="Tomahawk Steak" class="parallax-img">
+        </div>
+        <div class="showcase-text">
+            <h2>Tomahawk <span class="highlight">Gold</span></h2>
+            <p>Um espetáculo visual e de sabor. Maturação a seco por 45 dias para uma textura que derrete na boca.</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="atmosphere-section" id="atmosphere">
+    <div class="horizontal-wrapper">
+        
+        <div class="panel panel-1">
+            <div class="panel-content">
+                <h3>O Salão Principal</h3>
+                <p>Design industrial misturado com o calor da madeira angolana.</p>
+            </div>
+        </div>
+
+        <div class="panel panel-2">
+            <div class="panel-content">
+                <h3>A Adega</h3>
+                <p>Mais de 200 rótulos selecionados para harmonizar com o fogo.</p>
+            </div>
+        </div>
+
+        <div class="panel panel-3">
+            <div class="panel-content">
+                <h3>O Bar</h3>
+                <p>Cocktails de assinatura para começar ou terminar a noite.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section style="height: 50vh; background: #121212; display: flex; justify-content: center; align-items: center;">
+    <h2 style="color: #333;">Fim da Experiência</h2>
+</section>
+
+<section class="reservation-section">
+    <div class="reservation-container">
+        <h2>Garanta o seu lugar</h2>
+        <p>A brasa já está quente. Só faltas tu.</p>
+        
+        <form class="booking-form">
+            <div class="form-group">
+                <input type="text" placeholder="Nome Completo" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Pessoas</option>
+                          <option value="1">1 Pessoa</option>
+                        <option value="2">2 Pessoas</option>
+                        <option value="4">4 Pessoas</option>
+                        <option value="6">6+ Pessoas</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Confirmar Reserva</button>
+        </form>
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>FOGO & BRASA</h4>
+            <p>Talatona, Via S8, Luanda</p>
+            <p>+244 923 000 000</p>
+        </div>
+        <div class="footer-col">
+            <h4>Horário</h4>
+            <p>Seg - Qui: 12h - 23h</p>
+            <p>Sex - Dom: 12h - 02h</p>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fogo & Brasa. Feito com GSAP.</p>
+    </div>
+</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+/* --- Página de Eventos --- */
+
+.events-hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, #1a0f0f 0%, #000000 100%);
+    padding-top: 60px;
+}
+
+.scroll-indicator {
+    margin-top: 40px;
+    color: #CC5500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* O Layout Sticky */
+.sticky-container {
+    display: flex;
+    position: relative;
+    background: #0a0a0a;
+}
+
+/* Coluna Esquerda (Imagem Fixa) */
+.sticky-visual {
+    width: 50%;
+    height: 100vh;
+    position: sticky; /* O Segredo! */
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.visual-frame {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.event-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Escondido por padrão */
+    transition: opacity 0.8s ease-in-out, transform 1.2s ease;
+    transform: scale(1.1); /* Zoom leve para efeito */
+}
+
+.event-img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Coluna Direita (Texto Rolante) */
+.scroll-content {
+    width: 50%;
+    padding-bottom: 20vh; /* Espaço extra no final */
+}
+
+.content-block {
+    min-height: 100vh; /* Cada bloco ocupa pelo menos uma tela inteira */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    border-left: 1px solid #222;
+}
+
+.content-block h2 {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.content-block p {
+    color: #999;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.event-details {
+    list-style: none;
+    margin-bottom: 40px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.event-details li {
+    color: #CC5500;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-event {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 1px solid #CC5500;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.btn-event:hover {
+    background: #CC5500;
+    color: white;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 900px) {
+    .sticky-container {
+        flex-direction: column;
+    }
+    
+    .sticky-visual {
+        width: 100%;
+        height: 50vh; /* Imagem fica menor no topo */
+        position: relative; /* Deixa de ser sticky */
+        top: auto;
+    }
+
+    .scroll-content {
+        width: 100%;
+    }
+
+    .content-block {
+        min-height: auto; /* Remove altura forçada */
+        padding: 40px 20px;
+        border-left: none;
+        border-bottom: 1px solid #222;
+    }
+    
+    /* No mobile, vamos mostrar apenas a imagem do bloco ativo via JS ou deixar estático.
+       Neste caso, simplificamos: */
+    .visual-frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}

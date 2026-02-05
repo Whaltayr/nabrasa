@@ -1,0 +1,183 @@
+/* --- Página de Reservas (Split Layout) --- */
+
+.booking-page {
+    background-color: #0a0a0a;
+    height: 100vh; /* Altura exata da tela */
+    overflow: hidden; /* A página principal não rola, só o lado direito */
+}
+
+.split-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Lado Esquerdo (Imagem) */
+.split-visual {
+    width: 45%;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.visual-text {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 2;
+    color: white;
+}
+
+.visual-text h3 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Lado Direito (Formulário) - A CORREÇÃO ESTÁ AQUI */
+.split-form {
+    width: 55%;
+    height: 100%;
+    overflow-y: auto; /* Permite scroll vertical */
+    display: flex;
+    flex-direction: column;
+    /* REMOVI: justify-content e align-items */
+    background: #0f0a0a;
+    padding: 40px;
+}
+
+/* O conteúdo dentro do lado direito */
+.form-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: auto; /* O SEGREDO: Centra verticalmente se sobrar espaço, mas deixa rolar se faltar */
+}
+
+/* Scrollbar Bonita */
+.split-form::-webkit-scrollbar {
+    width: 8px;
+}
+.split-form::-webkit-scrollbar-track {
+    background: #0f0a0a;
+}
+.split-form::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+.split-form::-webkit-scrollbar-thumb:hover {
+    background: #CC5500;
+}
+
+.booking-title {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    color: #CC5500;
+    margin-bottom: 40px;
+    opacity: 0;
+}
+
+/* Estilo dos Inputs */
+.input-group {
+    margin-bottom: 25px;
+    opacity: 0;
+}
+
+.input-group label {
+    display: block;
+    color: #666;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 15px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: #CC5500;
+    background: #222;
+    outline: none;
+}
+
+.btn-confirm {
+    width: 100%;
+    padding: 18px;
+    background: #CC5500;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+    opacity: 0;
+    transition: background 0.3s;
+    margin-bottom: 40px; /* Margem extra no fundo para o botão não colar na borda ao rolar */
+}
+
+.btn-confirm:hover {
+    background: #a34400;
+}
+
+/* Link de Voltar */
+.back-link {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    z-index: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    color: #CC5500;
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .split-container {
+        flex-direction: column;
+    }
+    .split-visual {
+        display: none;
+    }
+    .split-form {
+        width: 100%;
+    }
+    .booking-page {
+        height: auto; /* Em telemóveis, deixa a página crescer normalmente */
+        overflow-y: auto;
+    }
+    .split-form {
+        overflow-y: visible; /* Remove o scroll interno no mobile, usa o da página */
+    }
+}
