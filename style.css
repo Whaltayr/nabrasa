@@ -617,3 +617,176 @@ select option {
         border-radius: 0;
     }
 }
+
+/* --- Página do Menu --- */
+
+.menu-page {
+    background-color: #0e0e0e; /* Fundo ligeiramente diferente para destacar */
+    min-height: 100vh;
+}
+
+.menu-container {
+    max-width: 800px; /* Menu estreito como uma folha de papel */
+    margin: 0 auto;
+    padding: 120px 20px 80px; /* Padding top para compensar o header fixo */
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #CC5500;
+    padding-bottom: 30px;
+}
+
+.menu-title {
+    font-family: 'Georgia', serif;
+    font-size: 4rem;
+    color: #CC5500;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+.menu-subtitle {
+    font-family: 'Dancing Script', cursive; /* Fonte manuscrita */
+    font-size: 1.5rem;
+    color: #888;
+}
+
+/* Seções do Menu */
+.menu-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Linha decorativa depois do título */
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #333;
+}
+
+.badge {
+    font-size: 0.7rem;
+    background: #CC5500;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+}
+
+/* Item Individual */
+.menu-item {
+    margin-bottom: 25px;
+}
+
+.item-header {
+    display: flex;
+    align-items: baseline; /* Alinha o texto pela base das letras */
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+/* O Efeito de Pontinhos Mágico */
+.dots {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    border-bottom: 1px dotted #444; /* Os pontinhos */
+    margin: 0 10px;
+}
+
+.item-price {
+    font-size: 1.1rem;
+    color: #CC5500;
+    font-weight: bold;
+    white-space: nowrap; /* Impede que o preço quebre linha */
+}
+
+.item-desc {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+    max-width: 90%;
+}
+
+/* Destaque para itens especiais */
+.highlight-item .item-name {
+    color: #CC5500; /* Nome laranja */
+}
+
+.highlight-item .item-desc {
+    color: #aaa; /* Descrição mais clara */
+}
+
+/* Grid para Acompanhamentos (Items Pequenos) */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Colunas */
+    gap: 20px;
+}
+
+.menu-item-small {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+}
+
+.menu-item-small h4 {
+    color: #ccc;
+    font-weight: normal;
+}
+
+.menu-item-small span {
+    color: #CC5500;
+}
+
+/* Footer do Menu */
+.menu-footer {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 0.8rem;
+    color: #444;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .menu-title {
+        font-size: 3rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr; /* 1 Coluna no mobile */
+    }
+
+    .item-header {
+        flex-direction: column; /* Preço vai para baixo do nome se não couber */
+        gap: 5px;
+    }
+    
+    .dots {
+        display: none; /* Remove pontinhos no mobile para layout limpo */
+    }
+}

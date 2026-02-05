@@ -141,3 +141,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// INICIALIZAÇÃO DO LENIS (SMOOTH SCROLL)
+const lenis = new Lenis({
+    duration: 1.2, // Quanto maior, mais "lento" e suave é o scroll
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de suavidade
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false, // Desativar em mobile (recomendado para performance)
+    touchMultiplier: 2,
+});
+
+// Sincronizar Lenis com o loop de animação do navegador
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// INTEGRAÇÃO LENIS + GSAP SCROLLTRIGGER
+// Isso garante que as animações do GSAP acompanhem a suavidade do Lenis
+if (typeof ScrollTrigger !== 'undefined') {
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+}
+

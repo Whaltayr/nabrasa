@@ -1,0 +1,69 @@
+
+/* ========================================= */
+/* CUSTOM SCROLLBAR (ESTILO CYBERPUNK)       */
+/* ========================================= */
+
+/* 1. Funciona no Chrome, Edge, Safari, Opera */
+::-webkit-scrollbar {
+    width: 8px; /* Largura fina e elegante */
+    height: 8px; /* Altura para scroll horizontal */
+}
+
+/* O "trilho" por onde a barra corre */
+::-webkit-scrollbar-track {
+    background: var(--bg-color); /* Fundo camuflado com o site */
+    border-left: 1px solid rgba(255, 255, 255, 0.05); /* Linha sutil separadora */
+}
+
+/* A "peça" que se move (Thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: #333; /* Cinza escuro discreto por padrão */
+    border-radius: 10px;    /* Arredondado */
+    border: 2px solid var(--bg-color); /* Cria um espaço entre a barra e a borda */
+}
+
+/* Efeito ao passar o mouse ou clicar na barra */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent); /* Fica Verde (#00ff88) */
+    box-shadow: 0 0 10px var(--accent); /* Brilho Neon */
+}
+
+/* 2. Suporte para Firefox (Menos customizável, mas mantém o dark mode) */
+* {
+    scrollbar-width: thin; /* Barra fina */
+    scrollbar-color: #333 var(--bg-color); /* Cor da barra / Cor do fundo */
+}
+
+/* --- AJUSTE ESPECIAL PARA O ARSENAL (STACK) --- */
+/* Como a caixa do Arsenal é pequena, vamos deixar a barra dela ainda mais sutil */
+.icon-grid::-webkit-scrollbar {
+    width: 4px; /* Ultra fina */
+}
+.icon-grid::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+}
+.icon-grid::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
+}
+
+/* --- LENIS SMOOTH SCROLL --- */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
